@@ -1,6 +1,7 @@
 -- esp.lua
 
 -- fixed skeleton esp, and made the ESP_SETTINGS more organize, but theres still improvement to this esp library I need to fix and do.
+-- I also fixed the fps performance a little, but that still needs to be improve still.
 
 --// Variables
 local Players = game:GetService("Players")
