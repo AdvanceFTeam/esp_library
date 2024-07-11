@@ -41,7 +41,7 @@ local ESP_SETTINGS = {
         OutlineColor = Color3.new(0, 0, 0), -- Color of the box outline
         Color = Color3.new(1, 1, 1), -- Color of the box
         Enabled = true, -- Toggle for the box ESP
-        Show = true -- Show/hide the box
+        Show = true, -- Show/hide the box
         Type = "Corner", -- Type of the box (2D, Corner)
     },
     Name = {
