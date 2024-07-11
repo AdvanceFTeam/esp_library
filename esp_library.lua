@@ -1,8 +1,5 @@
 -- esp.lua
 
--- fixed skeleton esp, and made the ESP_SETTINGS more organize, but theres still improvement to this esp library I need to fix and do.
--- I also fixed the fps performance a little, but that still needs to be improve still.
-
 --// Variables
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -38,42 +35,56 @@ local bonesR6 = {
 --// Settings
 local ESP_SETTINGS = {
     Box = {
-        OutlineColor = Color3.new(0, 0, 0), -- Color of the box outline
-        Color = Color3.new(1, 1, 1), -- Color of the box
+        OutlineColor = Color3.new(0, 0, 0),
+        Color = Color3.new(1, 1, 1), 
         Enabled = true, -- Toggle for the box ESP
-        Show = true, -- Show/hide the box
-        Type = "Corner", -- Type of the box (2D, Corner)
+        Show = true -- Show/hide the box
+        Type = "Corner", -- (2D, Corner)
     },
     Name = {
-        Color = Color3.new(1, 1, 1), -- Color of the name text
-        Show = true -- Show/hide the name
+        Color = Color3.new(1, 1, 1), 
+        Show = true
     },
     Health = {
-        OutlineColor = Color3.new(0, 0, 0), -- Color of the health bar outline
-        HighColor = Color3.new(0, 1, 0), -- Color of the health bar when high
-        LowColor = Color3.new(1, 0, 0), -- Color of the health bar when low
-        Show = true -- Show/hide the health bar
+        OutlineColor = Color3.new(0, 0, 0),
+        HighColor = Color3.new(0, 1, 0),
+        LowColor = Color3.new(1, 0, 0), 
+        Show = true
     },
     Distance = {
-        Show = true  -- Show/hide the distance text
+        Show = true
     },
     Skeletons = {
-        Show = true, -- Show/hide the skeleton ESP
+        Show = true, 
         Color = Color3.new(1, 1, 1) 
     },
     Tracer = {
-        Show = true, -- Show/hide the tracer
+        Show = true, 
         Color = Color3.new(1, 1, 1), 
         Thickness = 2, 
-        Position = "Bottom" -- Position of the tracer (Top, Middle, Bottom)
+        Position = "Bottom" -- (Top, Middle, Bottom)
     },
     General = {
         CharSize = Vector2.new(4, 6),
         Teamcheck = false, 
-        WallCheck = false, 
-        Enabled = true  -- Global toggle for the ESP
+        WallCheck = false,
+        Enabled = true -- Global toggle for the ESP
     }
 }
+
+local Custom_drawing_library = false
+local Drawing_Library_Name = ""
+
+local Drawing = loadstring(game:HttpGet("https://raw.githubusercontent.com/YellowGregs/Drawing_library/main/Drawing.lua"))()
+
+if Drawing then
+    Custom_drawing_library = true
+    Drawing_Library_Name = "YellowGreg Drawing Library"
+else
+    Drawing_Library_Name = "Solara Executor Drawing Library"
+end
+
+print("Using:", Drawing_Library_Name)
 
 local function create(class, properties)
     local drawing = Drawing.new(class)
